@@ -1,0 +1,43 @@
+.home-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .header {
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0,0,0,0.2);
+  }
+  .network-not-supported-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.1);
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .flashloan {
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.error { 
+  color: red;
+}
+
+.success { 
+  color: green;
+}
