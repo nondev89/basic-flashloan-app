@@ -23,7 +23,7 @@ function HeaderComponent() {
       Connect
     </Button>
   );
-  if (provider !== undefined || (web3 && web3.currentProvider._state && web3.currentProvider._state.isConnected)) connectButton = (<div>Connected</div>)
+  if (provider !== undefined || (web3 && web3.currentProvider._state && web3.currentProvider._state.accounts.length > 0)) connectButton = (<div>Connected</div>)
   if (!isNetworkSupported) connectButton = (<div>This network is not supported</div>)
 
   return (

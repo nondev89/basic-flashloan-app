@@ -24,7 +24,7 @@ function HomePage() {
     );
   }
   
-  if (!(web3 && web3.currentProvider._state && web3.currentProvider._state.isConnected)) {
+  if (!(web3 && web3.currentProvider._state && web3.currentProvider._state.accounts.length > 0)) {
     mainContent = (
       <div className="network-not-supported-body"><h1>Please connect your wallet</h1></div>
       );
