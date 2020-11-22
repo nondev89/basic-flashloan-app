@@ -10,14 +10,25 @@ function App() {
   const networkName = useSelector(state => state.web3Wrapper.currentNetwork)
 
   useEffect(() => {
-    if (networkName === "") dispatch(loadWeb3());
-    dispatch(setUpWeb3Modal());
+    if (window.ethereum) {
+      if (networkName === "") dispatch(loadWeb3());
+      dispatch(setUpWeb3Modal());
+    }
   }, [])
 
+  let mainContent = (
+    <HomePage/>
+  );
+  
+  if (!window.ethereum) {
+    mainContent = (
+    <div className="network-not-supported-body"><h1>Please use a browser that supports web3</h1></div>
+    );
+  }
 
   return (
     <div className="app">
-      <HomePage/>
+      {mainContent}
     </div>
   );
 }

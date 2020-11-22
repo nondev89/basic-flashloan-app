@@ -12,11 +12,6 @@ function HomePage() {
   const isNetworkSupported = useSelector(state => state.web3Wrapper.isNetworkSupported)
   const supportedNetwork = useSelector(state => state.web3Wrapper.supportedNetwork)
 
-  const sendTX = () => {
-    let amount = web3.utils.toWei("1", "ether");
-    web3.eth.sendTransaction({ from:"0xA5403cECD0F4Ffd25B5b86BCF1d2b8FD5CF7474d", to:"0xA5403cECD0F4Ffd25B5b86BCF1d2b8FD5CF7474d", value:amount });
-  }
-
   let mainContent = (
     <div className="body">
       <FlashLoanComponent />
