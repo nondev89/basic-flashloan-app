@@ -11,6 +11,7 @@ function HomePage() {
   const web3 = useSelector(state => state.web3Wrapper.web3)
   const isNetworkSupported = useSelector(state => state.web3Wrapper.isNetworkSupported)
   const supportedNetwork = useSelector(state => state.web3Wrapper.supportedNetwork)
+  const provider = useSelector(state => state.web3Wrapper.provider)
 
   let mainContent = (
     <div className="body">
@@ -19,7 +20,7 @@ function HomePage() {
   );
 
   
-  if (!(web3 && web3.currentProvider._state && web3.currentProvider._state.accounts.length > 0)) {
+  if (!(provider !== undefined || (web3 && web3.currentProvider._state && web3.currentProvider._state.accounts.length > 0))) {
     mainContent = (
       <div className="network-not-supported-body"><h1>Please connect your wallet</h1></div>
       );
