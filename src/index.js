@@ -10,10 +10,16 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './Sagas/index';
 
 const sagaMiddleware = createSagaMiddleware();
-const store = compose(
-  applyMiddleware(sagaMiddleware),
-  //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+let store = compose(
+  applyMiddleware(sagaMiddleware)
 )(createStore)(rootReducer);
+if (process.env.REACT_APP_ENV === "DEV") {
+  store = compose(
+    applyMiddleware(sagaMiddleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )(createStore)(rootReducer);
+}
+
 
 sagaMiddleware.run(rootSaga);
 

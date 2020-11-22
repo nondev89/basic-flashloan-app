@@ -28,24 +28,28 @@ function subscribe(provider) {
     provider.on("accountsChanged", (accounts) => {
       console.log(accounts);
       console.log("ACCOUNTS CHANGED");
+      window.location.reload(false);
     });
   
     // Subscribe to chainId change
     provider.on("chainChanged", (chainId) => {
       console.log(chainId);
       console.log("CHAIN CHANGED");
+      window.location.reload(false);
     });
   
     // Subscribe to provider connection
     provider.on("connect", (info) => {
       console.log(info);
       console.log("WALLET CONNECTED");
+      window.location.reload(false);
     });
   
     // Subscribe to provider disconnection
     provider.on("disconnect", (error) => {
       console.log(error);
       console.log("WALLET DISCONNECTED");
+      window.location.reload(false);
     });
 }
 

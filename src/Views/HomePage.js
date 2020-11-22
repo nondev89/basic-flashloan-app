@@ -17,6 +17,7 @@ function HomePage() {
       <FlashLoanComponent />
     </div>
   );
+
   
   if (!(web3 && web3.currentProvider._state && web3.currentProvider._state.accounts.length > 0)) {
     mainContent = (
@@ -29,7 +30,7 @@ function HomePage() {
     <div className="network-not-supported-body"><h1>Please switch to {supportedNetwork}</h1></div>
     );
   }
-  
+
   return (
     <div className="home-page">
       <HeaderComponent />
