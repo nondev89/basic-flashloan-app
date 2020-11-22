@@ -17,6 +17,12 @@ function HomePage() {
       <FlashLoanComponent />
     </div>
   );
+  
+  if (!(web3 && web3.currentProvider._state && web3.currentProvider._state.accounts.length > 0)) {
+    mainContent = (
+      <div className="network-not-supported-body"><h1>Please connect your wallet</h1></div>
+      );
+  }
 
   if (!isNetworkSupported) {
     mainContent = (
@@ -24,11 +30,6 @@ function HomePage() {
     );
   }
   
-  if (!(web3 && web3.currentProvider._state && web3.currentProvider._state.accounts.length > 0)) {
-    mainContent = (
-      <div className="network-not-supported-body"><h1>Please connect your wallet</h1></div>
-      );
-  }
   return (
     <div className="home-page">
       <HeaderComponent />
